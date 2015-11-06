@@ -4,19 +4,20 @@ import urllib
 #import json
 #from BeautifulSoup import BeautifulSoup
 #url = "http://newyork.craigslist.org/brx/boa/5293603888.html"
-links = []
-title
-summary 
+
 def cmake(a):
     url = a
     resp = urllib2.urlopen(url)
     ree = resp.read()
 
+    
+    global title
     title = ree
     title = title.split("<title>")[1]
     title = title.split("</title>")[0]
 
 
+    global summary
     summary = ree
     summary = summary.split('"postingbody">')[1]
     summary = summary.split('</section>')[0]
@@ -37,9 +38,9 @@ def cmake(a):
         ree[i] = ast.literal_eval(ree[i])
         i+=1
     i = 0
-    #while i < len(ree):
-    #    print ree[i].get('url')
-    #    i+=1
+
+    
+    global links[]
     while i < len(ree):
         links.append(ree[i].get('url'))
         i+=1
@@ -53,10 +54,10 @@ def returnText():
 def returnLinks():
     return links
         
-cmake("http://newyork.craigslist.org/lgi/cto/5303380345.html")
-print "Title:" + returnTitle() + "\n"
-print "Text:" + returnText() + "\n"
-print "Image Links:" + str(returnLinks())
+#cmake("http://newyork.craigslist.org/lgi/cto/5303380345.html")
+#print "Title:" + returnTitle() + "\n"
+#print "Text:" + returnText() + "\n"
+#print "Image Links:" + str(returnLinks())
     
 
 
