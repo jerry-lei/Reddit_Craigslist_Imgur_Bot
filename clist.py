@@ -18,14 +18,19 @@ def cmake(a):
     title = title.split("<title>")[1]
     title = title.split("</title>")[0]
 
+    global price 
+    price = ree
+    price = price.split('<span class="price">')[1]
+    price = price.split('</span>')[0]
 
     global summary
     summary = ree
     summary = summary.split('"postingbody">')[1]
     summary = summary.split('</section>')[0]
+#    summary = summary.strip('<br>')
     if "showcontact" in summary:
         summary = summary.split('<a href=')[0]
-
+        
 
     ree = ree.split('var imgList =')[1]
     ree = ree.split('var imageText ')[0]
@@ -60,11 +65,15 @@ def returnText():
     return summary
 def returnLinks():
     return links
+def returnPrice():
+    return price
         
-cmake("http://newyork.craigslist.org/lgi/cto/5303380345.html")
+#cmake("http://newyork.craigslist.org/mnh/cto/5279903723.html")
+cmake("http://newyork.craigslist.org/brk/cto/5303483432.html")
 print "Title:" + returnTitle() + "\n"
 print "Text:" + returnText() + "\n"
 print "Image Links:" + str(returnLinks())
+print "Price:" + returnPrice()
     
 
 
