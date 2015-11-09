@@ -67,7 +67,8 @@ def returnLinks():
     return links
 def returnPrice():
     return price
-        
+def returnNum():
+    return len(links)
 #cmake("http://newyork.craigslist.org/mnh/cto/5279903723.html")
 cmake("http://newyork.craigslist.org/brk/cto/5303483432.html")
 print "Title:" + returnTitle() + "\n"
