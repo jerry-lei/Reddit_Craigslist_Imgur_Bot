@@ -5,23 +5,24 @@ import clist
 from pprint import pprint
 
 
-api_key = '11' #needs anon key
+api_key = #(Client-ID)
 
-url_image = r'http://api.imgur.com/2/upload.json'
 
-def upload_local(fpath, imgur_title):
-    f = open(fpath, 'rb')
-    bd = f.read()
-    b64img = base64.b64encode(bd)
+url_image = 'https://api.imgur.com/3/image'
 
-    dataa = {'key': api_key,
-            'image': b64img,
-            'title': imgur_title,
-            }
-    r = requests.post(url_image, data = dataa)
-    j = json.loads(r.text)
+def upload_local():#fpath):#, imgur_title):
+    #f = open(fpath, 'rb')
+    #bd = f.read()
+    #b64img = base64.b64encode(bd)
 
-    pprint(j)
+    r = requests.post(url_image, data = {'image': 'http://images.craigslist.org/00D0D_43QSLR3T8xM_600x450.jpg',#open(fpath, 'rb').read(),
+                                         'type': 'file'},
+                                         headers = {'Authorization': 'Client-ID ' +  api_key})
+                                         
+    pprint(r.json())
 
+upload_local()
+
+#upload_local('0.jpg')#, 'test')    
 
     
