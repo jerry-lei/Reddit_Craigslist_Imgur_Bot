@@ -70,11 +70,11 @@ def returnPrice():
 def returnNum():
     return len(links)
 #cmake("http://newyork.craigslist.org/mnh/cto/5279903723.html")
-cmake("http://newyork.craigslist.org/brk/cto/5303483432.html")
-print "Title:" + returnTitle() + "\n"
-print "Text:" + returnText() + "\n"
-print "Image Links:" + str(returnLinks())
-print "Price:" + returnPrice()
+#cmake("http://newyork.craigslist.org/brk/cto/5303483432.html")
+#print "Title:" + returnTitle() + "\n"
+#print "Text:" + returnText() + "\n"
+#print "Image Links:" + str(returnLinks())
+#print "Price:" + returnPrice()
     
 
 

@@ -9,4 +9,7 @@ text = clist.returnText()
 count = clist.returnNum()
 price = clist.returnPrice()
 
-
+#print title
+#print text
+#print count
+#print price
