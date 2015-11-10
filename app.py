@@ -13,7 +13,10 @@ s = ''
 i = 0
 while i < len(links):
     #s += imgur.upload_url(links[i]).get('id') + ', '
-    print imgur.upload_url(links[i]).get('id')
+    #print imgur.upload_url(links[i]).get('id')
+    s += imgur.upload_url(links[i]) + ', '
     i += 1
 #pprint(imgur.make_album(s, title))
 
+
+imgur.make_album(s,title)
