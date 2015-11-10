@@ -1,5 +1,6 @@
 import clist
 import imgur
+from pprint import pprint
 
 cl_url = raw_input("CL: ")
 
@@ -8,11 +9,11 @@ title = clist.returnTitle()
 text = clist.returnText()
 price = clist.returnPrice()
 links = clist.returnLinks()
-
+s = ''
 i = 0
 while i < len(links):
-    links[i] = imgur.upload_url(links[i]).get('id')
+    #s += imgur.upload_url(links[i]).get('id') + ', '
+    print imgur.upload_url(links[i]).get('id')
     i += 1
-
-imgur.make_album(links, title)
+#pprint(imgur.make_album(s, title))
 

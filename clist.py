@@ -71,6 +71,8 @@ def returnPrice():
 def returnNum():
     return len(links)
 
+#cmake("http://newyork.craigslist.org/fct/snw/5309058274.html")
+#print returnLinks()
 
 #print "Title:" + returnTitle() + "\n"
 #print "Text:" + returnText() + "\n"
