@@ -51,13 +51,14 @@ def cmake(a):
         links.append(ree[i].get('url'))
         i+=1
 
-    i = 0
-    while i < len(links):
-        urllib.urlretrieve(links[i], str(i) + '.jpg')
-        i+=1
+
+#Downloads photos locally
+#    i = 0
+#    while i < len(links):
+#        urllib.urlretrieve(links[i], str(i) + '.jpg')
+#        i+=1
 
             
-#vals = ast.literal_eval(ree)
 
 def returnTitle():
     return title
@@ -69,8 +70,8 @@ def returnPrice():
     return price
 def returnNum():
     return len(links)
-#cmake("http://newyork.craigslist.org/mnh/cto/5279903723.html")
-#cmake("http://newyork.craigslist.org/brk/cto/5303483432.html")
+
+
 #print "Title:" + returnTitle() + "\n"
 #print "Text:" + returnText() + "\n"
 #print "Image Links:" + str(returnLinks())

@@ -1,15 +1,18 @@
 import clist
 import imgur
 
-cl_url = 'http://newyork.craigslist.org/brx/cto/5307543255.html'
+cl_url = raw_input("CL: ")
 
 clist.cmake(cl_url)
 title = clist.returnTitle()
 text = clist.returnText()
-count = clist.returnNum()
 price = clist.returnPrice()
+links = clist.returnLinks()
 
-#print title
-#print text
-#print count
-#print price
+i = 0
+while i < len(links):
+    links[i] = imgur.upload_url(links[i]).get('id')
+    i += 1
+
+imgur.make_album(links, title)
+
