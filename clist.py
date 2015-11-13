@@ -2,9 +2,6 @@ import ast
 import urllib2
 import urllib
 import os
-#import json
-#from BeautifulSoup import BeautifulSoup
-#url = "http://newyork.craigslist.org/brx/boa/5293603888.html"
 
 links = []
 def cmake(a):

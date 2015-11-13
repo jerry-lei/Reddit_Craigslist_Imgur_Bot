@@ -17,11 +17,11 @@ def upload_url(url):
                                          'type': 'URL'}, headers = {'Authorization': 'Client-ID ' +  CID})
 
 #    if r.get(status) == 200:
-    #data = r.json()
+    data = r.json()
     #pprint(data)
     #data = r.text
-    #return data#.get('data').get('id')
-    print r.json()
+    return data.get('data').get('id')
+#    pprint(r.json())
 
 
 def upload_local(fpath):
@@ -43,4 +43,5 @@ def make_album(image_ids, title):
 
 #print upload_url('http://images.craigslist.org/00P0P_jfJ4vjXOqoR_600x450.jpg')
 #print upload_url('http://images.craigslist.org/00U0U_2i58U8MBBJS_600x450.jpg')
-#upload_url('http://images.craigslist.org/00j0j_iee2vMl15DM_600x450.jpg')
+print upload_url('http://images.craigslist.org/00k0k_gveJPunzF45_600x450.jpg')
+print upload_url('http://images.craigslist.org/01717_9PDrelx7YbL_600x450.jpg')
