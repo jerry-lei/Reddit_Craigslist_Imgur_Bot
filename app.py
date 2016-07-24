@@ -1,22 +1,19 @@
-import clist
+from clist_img import *
 import imgur
-from pprint import pprint
+from logger import *
 
-cl_url = raw_input("CL: ")
+@logger
+def imgur_album(link):
+    post = cmake(link)
 
-clist.cmake(cl_url)
-title = clist.returnTitle()
-text = clist.returnText()
-price = clist.returnPrice()
-links = clist.returnLinks()
-s = ''
-i = 0
-while i < len(links):
-    #s += imgur.upload_url(links[i]).get('id') + ', '
-    #print imgur.upload_url(links[i]).get('id')
-    s += imgur.upload_url(links[i]) + ', '
-    i += 1
-#pprint(imgur.make_album(s, title))
+    s = ''
+    c1 = 0
+    links = post[3]
+    while c1 < len(links):
+        s += imgur.upload_url(links[c1]) + ', '
+        c1 += 1
 
+    album_id = imgur.make_album(s,post[0])
+    return "imgur.com/a/" + album_id
 
-imgur.make_album(s,title)
+imgur_album("http://newyork.craigslist.org/fct/cto/5674742667.html")
