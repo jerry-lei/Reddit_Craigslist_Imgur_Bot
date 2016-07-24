@@ -2,9 +2,10 @@ import requests
 import json
 import base64
 from pprint import pprint
+from api_keys import *
 
 #(Client-ID)
-CID = '07fed098fe20f1b'
+CID = imgur_clientid
 
 
 url_image = 'https://api.imgur.com/3/image'
@@ -31,17 +32,18 @@ def upload_local(fpath):
     data = r.json()
     return data.get('data').get('id')
 
-                    
-    
+
+
 def make_album(image_ids, title):
 
-    r = requests.post(url_album, data = {'ids[]': image_ids,
+    r = requests.post(url_album, data = {'ids[]': image_ids.split(','),
                                          'title': title}, headers = {'Authorization': 'Client-ID ' + CID})
 #    return r.json()
-    pprint(r.json())
+    data = r.json()
+    return data.get('data').get('id')
 
 
 #print upload_url('http://images.craigslist.org/00P0P_jfJ4vjXOqoR_600x450.jpg')
 #print upload_url('http://images.craigslist.org/00U0U_2i58U8MBBJS_600x450.jpg')
-print upload_url('http://images.craigslist.org/00k0k_gveJPunzF45_600x450.jpg')
-print upload_url('http://images.craigslist.org/01717_9PDrelx7YbL_600x450.jpg')
+#print upload_url('http://images.craigslist.org/00k0k_gveJPunzF45_600x450.jpg')
+#print upload_url('http://images.craigslist.org/00m0m_dXKjr66fZK0_600x450.jpg')
