@@ -16,7 +16,7 @@ def cmake(CL_link):
     summary = ree
     summary = summary.split('"postingbody">')[1]
     summary = summary.split('</section>')[0]
-    summary = summary.replace('<br>','')
+    summary = summary.replace('<br>','\n>')
     if "showcontact" in summary:
         summary = summary.split('<a href=')[0]
 
