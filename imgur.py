@@ -1,8 +1,6 @@
 import requests
 import json
-import base64
-from pprint import pprint
-from api_keys import *
+from api_keys import imgur_clientid, imgur_clientsecret
 
 #(Client-ID)
 CID = imgur_clientid
@@ -41,9 +39,3 @@ def make_album(image_ids, title):
 #    return r.json()
     data = r.json()
     return data.get('data').get('id')
-
-
-#print upload_url('http://images.craigslist.org/00P0P_jfJ4vjXOqoR_600x450.jpg')
-#print upload_url('http://images.craigslist.org/00U0U_2i58U8MBBJS_600x450.jpg')
-#print upload_url('http://images.craigslist.org/00k0k_gveJPunzF45_600x450.jpg')
-#print upload_url('http://images.craigslist.org/00m0m_dXKjr66fZK0_600x450.jpg')
