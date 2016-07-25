@@ -15,8 +15,12 @@ while True:
     for submission in subreddit.get_new(limit=10):
         link = submission.url
         if 'craigslist.org' in link and submission.id not in finished:
-            fin = working.imgur_album(link)
-            submission.add_comment(fin[0] + " - " + fin[1] + "\n\n[LINK TO IMGUR](https://" + fin[3] + ")")
-            print "------- LINK: " + fin[3]
-            finished.append(submission.id)
+            try:
+                fin = working.imgur_album(link)
+                submission.add_comment(fin[0] + " - " + fin[1] + "\n\n[LINK TO IMGUR](https://" + fin[3] + ")")
+                print "------- LINK: https://" + fin[3]
+                finished.append(submission.id)
+            except(IndexError):
+                print "NOT POST LINK"
+                pass
     time.sleep(60)
