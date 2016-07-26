@@ -1,4 +1,4 @@
-from clist_img import *
+from clist_img import cmake
 import imgur
 from logger import *
 
