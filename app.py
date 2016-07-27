@@ -4,12 +4,14 @@ import working
 import database
 from clist_img import find_links
 from api_keys import reddit_clientid, reddit_clientsecret, reddit_user, reddit_pass
+import requests.packages.urllib3
+requests.packages.urllib3.disable_warnings()
 
 r = praw.Reddit('Craiglist bot by /u/jerrylei98 /*==*\ Posting through /u/clbot-jerrylei98')
 #r.set_oauth_app_info(client_id = reddit_clientid,
                      #client_secret = reddit_clientsecret,
                      #redirect_uri='http://162.243.63.270')
-r.login(reddit_user, reddit_pass)
+r.login(reddit_user, reddit_pass, disable_warning=True)
 
 #Replies self posts
 while True:
