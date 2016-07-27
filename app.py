@@ -13,17 +13,16 @@ r = praw.Reddit('Craiglist bot by /u/jerrylei98 /*==*\ Posting through /u/clbot-
                      #redirect_uri='http://162.243.63.270')
 r.login(reddit_user, reddit_pass, disable_warning=True)
 
-#Replies self posts
 while True:
     subreddit = r.get_subreddit('jerrylei98')
-    subreddit_comments = subreddit.get_comments()
+    subreddit_comments = subreddit.get_comments() #grabs comments
     for comment in subreddit_comments:
         #print comment.body
-        if database.checkDB(comment.id,"com_log"):
+        if database.checkDB(comment.id,"com_log"): #checks if already parsed
             print "-Checking Comment-"
             temp = comment.body
-            links = list(set(find_links(temp)))
-            links = [c1 for c1 in links if 'craigslist.org/' in c1]
+            links = list(set(find_links(temp))) #gets rid of duplicate links
+            links = [c1 for c1 in links if 'craigslist.org/' in c1] #only links with 'craigslist.org/'
             s = ''
             if len(links) > 0:
                 print "-Replying to Comment-"
@@ -35,10 +34,10 @@ while True:
                     except(IndexError):
                         print "-* NOT POST LINK *-"
                         pass
-                if len(s) > 26:
+                if len(s) > 26: #only reply if album has been added
                     comment.reply(s)
             database.intoDB3(comment.id)
-    for submission in subreddit.get_new(limit=5):
+    for submission in subreddit.get_new(limit=5): #grabs self text (same as comment)
         if database.checkDB(submission.id,"sub_log"):
             print "-Checking Submission-"
             links = list(set(find_links(submission.selftext)))
@@ -59,7 +58,7 @@ while True:
             #print s
     time.sleep(180)
 
-"""Replies to link submissions
+"""Replies to link submissions -- duplicate of /u/craigslist-bot
     while True:
         print '*/==Awake==\*'
         subreddit = r.get_subreddit('jerrylei98')

@@ -1,9 +1,12 @@
 import urllib2
 from re import findall
 
+#regex returns links
 def find_links(stringy):
     return findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', stringy)
 
+#scrapes the link. grabs price/title/textbody/images
+#returns [title, price, textbody, images]
 def cmake(CL_link):
     url = CL_link
     try:
@@ -36,7 +39,7 @@ def cmake(CL_link):
         for c1 in xrange(len(img_list)):
             if "url" in img_list[c1]:
                 fin_list.append(img_list[c1].split('url:')[1])
-                
+
         return [title,price,summary,fin_list]
     except:
         return ''
