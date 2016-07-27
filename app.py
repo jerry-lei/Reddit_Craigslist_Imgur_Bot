@@ -36,7 +36,6 @@ while True:
                 if len(s) > 26:
                     comment.reply(s)
             database.intoDB3(comment.id)
-            time.sleep(60)
     for submission in subreddit.get_new(limit=5):
         if database.checkDB(submission.id,"sub_log"):
             print "-Checking Submission-"
@@ -55,7 +54,6 @@ while True:
                         pass
                 submission.add_comment(s)
             database.intoDB2(submission.id)
-            time.sleep(60)
             #print s
     time.sleep(180)
 
