@@ -1,0 +1,2 @@
+upstart: /etc/init/
+log: /var/log/upstart
