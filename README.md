@@ -9,6 +9,10 @@ Craiglist bot to learn how to implement APIs. Testing on: [/r/jerrylei98](https:
 
 ![com_img](demo_images/comment_reply.png)
 
+### Goals:
+
+- Pastebin API for text/other data on CL post
+
 ### Log
 
 - (July 25) Replies to link submission
